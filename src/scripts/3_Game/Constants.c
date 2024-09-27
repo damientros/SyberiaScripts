@@ -291,7 +291,7 @@ modded class PlayerConstants
 	static const float BAREFOOT_MOVEMENT_BLEED_MODIFIER = 0.05;
 	static const float SHOES_MOVEMENT_DAMAGE_PER_STEP = 0.003;
 	
-	static const float BLEEDING_SOURCE_BLOODLOSS_PER_SEC = -0.5;
+	static const float BLEEDING_SOURCE_BLOODLOSS_PER_SEC = -2.8; //0.5
 	static const float BLOOD_REGEN_RATE_PER_SEC	= 0.05; //base amount of blood regenerated per second 
 	
 	static const float LOW_ENERGY_DAMAGE_PER_SEC			= 0.03;	//health loss per second while low on energy
@@ -305,28 +305,22 @@ modded class PlayerConstants
 	
 	
 	// Metabolic
-	static const float SL_ENERGY_CRITICAL = 0;
-	static const float SL_ENERGY_LOW = 1000;
-	static const float SL_ENERGY_NORMAL = 2000;
-	static const float SL_ENERGY_HIGH = 2800;
-	static const float LOW_ENERGY_THRESHOLD = 0.01;
+
+	static const float LOW_ENERGY_THRESHOLD = 0.01;  //Threshold for health loss
 	
-	static const float METABOLIC_SPEED_ENERGY_BASAL		= 0.01;		//energy loss per second while idle	
-	static const float METABOLIC_SPEED_ENERGY_WALK		= 0.02;		//energy loss per second
-	static const float METABOLIC_SPEED_ENERGY_JOG		= 0.10;		//energy loss per second
-	static const float METABOLIC_SPEED_ENERGY_SPRINT	= 0.20;		//energy loss per second
+	static const float METABOLIC_SPEED_ENERGY_BASAL		= 0.03;		//energy loss per second while idle	
+	static const float METABOLIC_SPEED_ENERGY_WALK		= 0.08;		//energy loss per second
+	static const float METABOLIC_SPEED_ENERGY_JOG		= 0.3;		//energy loss per second
+	static const float METABOLIC_SPEED_ENERGY_SPRINT	= 0.5;		//energy loss per second
 	
 	// Water
-	static const float SL_WATER_CRITICAL = 0;
-	static const float SL_WATER_LOW = 500;
-	static const float SL_WATER_NORMAL = 1000;
-	static const float SL_WATER_HIGH = 1300;
-	static const float LOW_WATER_THRESHOLD = 0.01;
 
-	static const float METABOLIC_SPEED_WATER_BASAL		= 0.01;		//water loss per second while idle	
-	static const float METABOLIC_SPEED_WATER_WALK		= 0.03;		//water loss per second
-	static const float METABOLIC_SPEED_WATER_JOG		= 0.15;		//water loss per second
-	static const float METABOLIC_SPEED_WATER_SPRINT		= 0.30;		//water loss per second
+	static const float LOW_WATER_THRESHOLD = 0.01;	//Threshold for health loss
+
+	static const float METABOLIC_SPEED_WATER_BASAL		= 0.05;		//water loss per second while idle	
+	static const float METABOLIC_SPEED_WATER_WALK		= 0.1;		//water loss per second
+	static const float METABOLIC_SPEED_WATER_JOG		= 0.4;		//water loss per second
+	static const float METABOLIC_SPEED_WATER_SPRINT		= 0.6;		//water loss per second
 	
 	static const float HEALTH_LOSS_HC_PLUS_LOW				= 0.01;
 	static const float HEALTH_LOSS_HC_PLUS_HIGH				= 0.05;			
@@ -379,11 +373,11 @@ modded class GameConstants
 	const float STAMINA_SYNC_RATE = 1; //in secs
 	const float STAMINA_MAX = 100;
 	
-	const float TEMPERATURE_RATE_COOLING_INSIDE = -0.18;
-	const float TEMPERATURE_RATE_COOLING_GROUND = -0.20;
+	const float TEMPERATURE_RATE_COOLING_INSIDE = -0.15;
+	const float TEMPERATURE_RATE_COOLING_GROUND = -0.25;
 	const float TEMPERATURE_RATE_COOLING_PLAYER = 0; // disabled for correct calculation
 	const float ENVIRO_ITEM_HEAT_TRANSFER_COEF = 0.025;
-	const float TEMPERATURE_ITEM_HEAT_TRANSFER_COEF = 0.05;
+	const float TEMPERATURE_ITEM_HEAT_TRANSFER_COEF = 0.18;
 	const float TEMPERATURE_ITEMS_HEAT_IN_INVENTORY_FROM_BODY = 26;
 	const float ENVIRO_FIRE_INCREMENT = 0.001;	
 	const float ENVIRO_DRY_INCREMENT = 0.000005;

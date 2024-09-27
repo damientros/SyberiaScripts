@@ -7,20 +7,32 @@ modded class InspectMenuNew
 		if( item_base && item_base.IsTemperatureVisible() )
 		{
 			float temperature = item_base.GetTemperature();
-            if ( temperature > 100 )
+			//Added for Namalsk survival compatibility. Wetness > 1.1 is freezing > 2.0 is frozen
+			float wetness = 0
+			if(item_base.HasWetness())
+			{
+			wetness = item_base.GetWet();
+			}
+            if ( temperature > 100 && wetness <= 1.1 )
             {
                 temperature = 100 * Math.Floor( temperature / 100.0 );
+				WidgetTrySetText(root_widget, "ItemTemperatureWidget",  "#inv_inspect_about " + temperature.ToString() +  " " + "#inv_inspect_celsius", GetSyberiaTemperatureColor( temperature, 255 ) );
             }
-			else if ( temperature > 10 )
+			else if ( temperature > 10 && wetness <= 1.1 )
 			{
 				temperature = 10 * Math.Floor( temperature / 10.0 );
+				WidgetTrySetText(root_widget, "ItemTemperatureWidget",  "#inv_inspect_about " + temperature.ToString() +  " " + "#inv_inspect_celsius", GetSyberiaTemperatureColor( temperature, 255 ) );
 			}
-            else
+            else if ( temperature > 0 && wetness <= 2.0 )
 			{
 				temperature = 5 * Math.Floor( temperature / 5.0 );
+				WidgetTrySetText(root_widget, "ItemTemperatureWidget",  "#str_syb_freezing" , GetSyberiaTemperatureColor( temperature, 255 ) );
+			}else
+			{
+				WidgetTrySetText(root_widget, "ItemTemperatureWidget",  "#str_syb_frozen" , GetSyberiaTemperatureColor( temperature, 255 ) );
 			}
             
-            WidgetTrySetText(root_widget, "ItemTemperatureWidget",  "#inv_inspect_about " + temperature.ToString() +  " " + "#inv_inspect_celsius", GetSyberiaTemperatureColor( temperature, 255 ) );
+            
 		}
         else
         {
